@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffddf4;
+            margin: 0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .birthday-img {
+            width: 250px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #ff1a4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Happy Birthday! 🎂</h1>
+        <img src="https://source.unsplash.com/300x300/?birthday,cake" alt="Birthday Cake" class="birthday-img">
+        <p id="message">Click the button for a surprise!</p>
+        <button class="btn" onclick="showWish()">Reveal Wish</button>
+    </div><script>
+    function showWish() {
+        document.getElementById('message').innerHTML = "Wishing you a day filled with love, joy, and happiness! 🎈🎊";
+    }
+</script>
+
+</body>
+</html>
