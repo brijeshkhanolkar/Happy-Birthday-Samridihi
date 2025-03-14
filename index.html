@@ -1,52 +1,129 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
+    <title>Happy Birthday, [Friend's Name]! 🎉</title>
     <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #ffddf4;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #ffe6f2;
+            color: #ff69b4;
+        }
+
         .container {
-            margin-top: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
         }
-        .birthday-img {
-            width: 250px;
-            animation: bounce 2s infinite;
+
+        .header {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 0 20px rgba(255,105,180,0.3);
         }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .btn {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #ff4d6d;
+
+        h1 {
+            font-size: 3em;
             color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
         }
-        .btn:hover {
-            background-color: #ff1a4c;
+
+        .message {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .photo-gallery img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff69b4;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎉 Happy Birthday! 🎂</h1>
-        <img src="https://source.unsplash.com/300x300/?birthday,cake" alt="Birthday Cake" class="birthday-img">
-        <p id="message">Click the button for a surprise!</p>
-        <button class="btn" onclick="showWish()">Reveal Wish</button>
-    </div><script>
-    function showWish() {
-        document.getElementById('message').innerHTML = "Wishing you a day filled with love, joy, and happiness! 🎈🎊";
-    }
-</script>
+        <div class="header">
+            <h1>Happy Birthday, [Friend's Name]! 🎂🎉</h1>
+            <p style="color: white; font-size: 1.2em;">You're Amazing! 💖</p>
+        </div>
 
+        <div class="message">
+            <h2>To My Wonderful Friend 🌸</h2>
+            <p>Dear [Friend's Name],</p>
+            <p>On your special day, I want to remind you how incredible you are! Your kindness, laughter, and amazing spirit make the world brighter. Remember when we [insert memory here]? That's one of my favorite memories with you!</p>
+            <p>Wishing you a day filled with love, joy, and everything that makes you smile. May all your dreams come true this year! 🎈</p>
+            <p>With love,<br>[Your Name]</p>
+        </div>
+
+        <div class="photo-gallery">
+            <!-- Replace these with your actual photos -->
+            <img src="photo1.jpg" alt="Memory 1">
+            <img src="photo2.jpg" alt="Memory 2">
+            <img src="photo3.jpg" alt="Memory 3">
+        </div>
+
+        <div style="margin: 30px 0;">
+            <h3>Play Your Birthday Song! 🎵</h3>
+            <!-- Replace with your own YouTube embed code -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Create falling confetti
+        function createConfetti() {
+            const colors = ['#ff69b4', '#ff1493', '#ff99cc', '#ffffff'];
+            for(let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`;
+                document.body.appendChild(confetti);
+            }
+        }
+
+        // Start animations when page loads
+        window.onload = function() {
+            createConfetti();
+            
+            // Add more interactive elements here if needed
+        };
+    </script>
 </body>
 </html>
